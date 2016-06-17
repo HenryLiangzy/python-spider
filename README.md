@@ -1,2 +1,2 @@
 # python-spider
-a python practice
+A python practice to spider a website.
