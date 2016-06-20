@@ -8,7 +8,7 @@ def getImgAddress(string):
     marks=re.findall(r'<img.*?src=\".*?\"*>|<img.*?src=\'.*?\'*>',string)
     srcs=[]
     for mark in marks:
-        print(mark)
+
         src=re.findall(r'src=\".*?\"', mark)
         # because it is an array so it should turn to 0 to make it a string
         src=src[0][5:-1]
@@ -17,14 +17,25 @@ def getImgAddress(string):
         # this step will format an array of address
     #return it 
     return srcs
+def getImgName(array):
+    name=[]
+    for address in array:
+        print(address)
+        address=re.findall(r'', address)
+        address.append(address)
+    print(name)
+    return name
+def downloadImg(array):
+    
+    print()
 response=request.urlopen('http://www.baidu.com')
 info=response.info()
 print (info)
 input=response.read().decode()
-getImgAddress(input)
+imgAdd=getImgAddress(input)
+name=getImgName(imgAdd)
 
 
-
-def write(data):
-    file=open('web.txt','wb')
+def write(data,name):
+    file=open(name,'wb')
     file.write(data.read())
