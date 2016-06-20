@@ -1,5 +1,6 @@
 # python-spider
-a python practice
+
+A python practice to spider a website.
 
 #just a test from pychram to github
 test
