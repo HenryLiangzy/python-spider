@@ -1,14 +1,10 @@
 from urllib import request
 import re
-
-
 def getImgAddress(string):
-    #     this function is to return an array of picture address
-
+    # this function is to return an array of picture address
     marks=re.findall(r'<img.*?src=\".*?\"*>|<img.*?src=\'.*?\'*>',string)
     srcs=[]
     for mark in marks:
-
         src=re.findall(r'src=\".*?\"', mark)
         # because it is an array so it should turn to 0 to make it a string
         src=src[0][5:-1]
@@ -26,16 +22,17 @@ def getImgName(array):
     print(name)
     return name
 def downloadImg(array):
-    
+    #this method hasn;t finish
     print()
 response=request.urlopen('http://www.baidu.com')
 info=response.info()
-print (info)
-input=response.read().decode()
-imgAdd=getImgAddress(input)
+# print (info)
+page=response.read().decode()
+imgAdd=getImgAddress(page)
 name=getImgName(imgAdd)
 
 
 def write(data,name):
+    #this method is to write the data into files
     file=open(name,'wb')
     file.write(data.read())
